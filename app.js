@@ -29,21 +29,21 @@ require("./config")(app);
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
-// // 👇 Start handling routes here
-// const index = require("./routes/index");
-// app.use("/api", index);
+// 👇 Start handling routes here
+const index = require("./routes/index");
+app.use("/api", index);
 
-const allRoutes = require("./routes");
-app.use("/api", allRoutes);
+// const allRoutes = require("./routes");
+// app.use("/api", allRoutes);
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 
 //for deploy
