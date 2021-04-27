@@ -6,18 +6,18 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/contact", (req, res) => {
-  ContactModel.find()
-    .then((response) => {
-      res.status(200).json(response);
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: "Something went wrong",
-        message: err,
-      });
-    });
-});
+// router.get("/contact", (req, res) => {
+//   ContactModel.find()
+//     .then((response) => {
+//       res.status(200).json(response);
+//     })
+//     .catch((err) => {
+//       res.status(500).json({
+//         error: "Something went wrong",
+//         message: err,
+//       });
+//     });
+// });
 
 router.post("/contact/create", (req, res) => {
   const { name, email, subject, message } = req.body;
@@ -33,7 +33,7 @@ router.post("/contact/create", (req, res) => {
     })
     .catch((error) => {
       res.status(500).json({
-        error: "Something went wrong",
+        error: "Something went wrong sending the msg",
         message: error,
       });
     });
