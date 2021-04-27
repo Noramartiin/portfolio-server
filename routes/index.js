@@ -27,7 +27,6 @@ router.post("/contact/create", (req, res) => {
     subject: subject,
     message: message,
   })
-
     .then((response) => {
       res.status(200).json(response);
     })
